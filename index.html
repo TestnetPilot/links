@@ -1,135 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testnet Pilot X | Official Links</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-            background: linear-gradient(-45deg, #020617, #1e1b4b, #312e81, #020617);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testnet Pilot</title>
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-        .logo-area {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0a0f1c;
+    color: #fff;
+}
 
-        .main-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
-            object-fit: cover;
-            background-color: #1e293b;
-        }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
 
-        .welcome-box {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0a0f1c, #111a2f);
+}
 
-        h1 { font-size: 28px; margin: 10px 0; color: #f8fafc; font-weight: 800; }
-        .welcome-text { color: #38bdf8; font-size: 18px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .description { color: #94a3b8; font-size: 14px; margin-top: 10px; max-width: 320px; line-height: 1.5; }
+.hero h1 {
+    font-size: 42px;
+    color: #00e5ff;
+}
 
-        .links-container { width: 100%; max-width: 400px; }
+.hero p {
+    margin: 20px 0;
+    color: #aaa;
+}
 
-        .link-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin-bottom: 15px;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(12px);
-        }
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    background: #00e5ff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
 
-        .link-card i {
-            font-size: 24px;
-            margin-right: 20px;
-            width: 30px;
-            text-align: center;
-        }
+.btn:hover {
+    background: #00bcd4;
+}
 
-        /* Official Brand Colors */
-        .fa-x-twitter { color: #ffffff; }
-        .fa-telegram { color: #229ED9; }
-        .fa-youtube { color: #FF0000; }
-        .fa-tiktok { color: #ff0050; text-shadow: 1px 1px #00f2ea; }
-        .fa-instagram { color: #E1306C; }
-        .fa-github { color: #f0f6fc; }
+/* CARDS */
+.section {
+    padding: 60px 20px;
+}
 
-        .link-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(56, 189, 248, 0.6);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
 
-        .link-card:active { transform: scale(0.98); }
+.card {
+    background: #111a2f;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
 
-        .footer { margin-top: 60px; font-size: 11px; color: rgba(148, 163, 184, 0.6); letter-spacing: 2px; font-weight: 600; }
-    </style>
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00e5ff33;
+}
+
+/* WHY SECTION */
+.why {
+    text-align: center;
+}
+
+.why ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why li {
+    margin: 10px 0;
+    color: #ccc;
+}
+
+/* SOCIAL */
+.social {
+    text-align: center;
+    padding: 40px 20px;
+    background: #111a2f;
+}
+
+.social a {
+    display: inline-block;
+    margin: 10px;
+    color: #00e5ff;
+    text-decoration: none;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 14px;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="logo-area">
-        <img src="https://github.com/TestnetPilot.png" alt="Logo" class="main-logo">
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>Navigate Web3 with Confidence 🚀</h1>
+        <p>Early Testnet Guides • Verified Airdrops • Real-Time Insights</p>
+        
+        <a href="#" class="btn">🚀 Start Earning Airdrops</a>
+        <a href="#" class="btn">🧭 Explore Testnets</a>
     </div>
+</section>
 
-    <div class="welcome-box">
-        <p class="welcome-text">Welcome to</p>
-        <h1>Testnet Pilot X</h1>
-        <p class="description">Exploring the decentralized frontier. Join our official community across all platforms.</p>
-    </div>
+<!-- SERVICES -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align:center;">Your Flight Plan ✈️</h2>
+        
+        <div class="cards">
+            <div class="card">
+                <h3>🪂 Airdrops</h3>
+                <p>Find early reward opportunities.</p>
+            </div>
 
-    <div class="links-container">
-        <a href="https://x.com/TestnetPilot_X" class="link-card" target="_blank">
-            <i class="fab fa-x-twitter"></i> X (Twitter)
-        </a>
-        <a href="https://t.me/TestnetPilot_X" class="link-card" target="_blank">
-            <i class="fab fa-telegram"></i> Telegram Community
-        </a>
-        <a href="https://youtube.com/@testnetpilot_x" class="link-card" target="_blank">
-            <i class="fab fa-youtube"></i> YouTube Channel
-        </a>
-        <a href="https://www.tiktok.com/@testnetpilot_x" class="link-card" target="_blank">
-            <i class="fab fa-tiktok"></i> TikTok Profile
-        </a>
-        <a href="https://www.instagram.com/testnetpilot_x/" class="link-card" target="_blank">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="https://github.com/TestnetPilot" class="link-card" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-    </div>
+            <div class="card">
+                <h3>🛠️ Testnet Guides</h3>
+                <p>Step-by-step tutorials.</p>
+            </div>
 
-    <div class="footer">
-        © 2026 TESTNET PILOT X | DECENTRALIZED HUB
+            <div class="card">
+                <h3>🔍 Token Utility</h3>
+                <p>Understand project value.</p>
+            </div>
+
+            <div class="card">
+                <h3>📰 Crypto News</h3>
+                <p>Stay updated daily.</p>
+            </div>
+        </div>
     </div>
+</section>
+
+<!-- WHY -->
+<section class="section why">
+    <div class="container">
+        <h2>Why Testnet Pilot? 🔥</h2>
+
+        <ul>
+            <li>✅ Verified Opportunities Only</li>
+            <li>⚡ Early Access Strategies</li>
+            <li>🔐 Scam-Free Focus</li>
+            <li>📊 Deep Research Insights</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="hero">
+    <h2>Join the Pilot Crew ✈️</h2>
+    <p>Start your Web3 journey today.</p>
+    <a href="#" class="btn">🚀 Join the Flight</a>
+</section>
+
+<!-- SOCIAL -->
+<section class="social">
+    <h3>Follow the Mission 🚀</h3>
+
+    <a href="https://x.com/TestnetPilot_X" target="_blank">Twitter (X)</a>
+    <a href="https://t.me/TestnetPilot_X" target="_blank">Telegram</a>
+    <a href="https://youtube.com/@testnetpilot_x" target="_blank">YouTube</a>
+    <a href="https://www.tiktok.com/@testnetpilot_x" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/testnetpilot_x/" target="_blank">Instagram</a>
+    <a href="https://github.com/TestnetPilot" target="_blank">GitHub</a>
+    <a href="https://open.spotify.com/user/31szkim6wmevrnd3rhw55toa6b5i?si=7e7e225f2f134af9" target="_blank">Spotify</a>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Testnet Pilot. All rights reserved.
+</div>
 
 </body>
 </html>
