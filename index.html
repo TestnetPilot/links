@@ -1,128 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testnet Pilot X | Official Links</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* පැහැදිලිව පෙනෙන පසුබිම් ඇනිමේෂන් එක */
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #1e1b4b);
-            background-size: 400% 400%;
-            animation: moveGradient 8s ease infinite; /* වේගය වැඩි කර ඇත */
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TestnetPilot 🚀</title>
 
-        @keyframes moveGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0f2027, #000000);
+  color: white;
+  text-align: center;
+}
 
-        .profile-container { text-align: center; margin-bottom: 30px; }
-        
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 15px;
-            background-image: url('https://github.com/TestnetPilot.png');
-            background-size: cover;
-            display: inline-block;
-        }
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
 
-        h1 { font-size: 26px; margin: 0; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .subtitle { color: #cbd5e1; margin-top: 10px; font-size: 15px; letter-spacing: 1px; }
+.profile {
+  width: 120px;
+  border-radius: 50%;
+  margin-top: 20px;
+  border: 3px solid #00f0ff;
+}
 
-        .links-container { width: 100%; max-width: 400px; margin-top: 25px; }
+h1 {
+  margin-top: 10px;
+  font-size: 28px;
+}
 
-        .link-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 18px;
-            margin-bottom: 15px;
-            text-decoration: none;
-            color: #f8fafc;
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-        }
+.tagline {
+  color: #aaa;
+  margin-bottom: 20px;
+}
 
-        /* Icons වල නියම පාටවල් (Always Visible) */
-        .link-card i { font-size: 24px; margin-right: 20px; width: 30px; text-align: center; }
-        
-        .fa-x-twitter { color: #ffffff; }
-        .fa-telegram { color: #229ED9; }
-        .fa-youtube { color: #FF0000; }
-        .fa-tiktok { color: #ff0050; text-shadow: 2px 2px #00f2ea; }
-        .fa-instagram { color: #E1306C; }
-        .fa-github { color: #ffffff; }
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
 
-        /* Hover වීමේදී සිදුවන වෙනස්කම් */
-        .link-card:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
+ul {
+  text-align: left;
+  padding-left: 20px;
+}
 
-        /* ටච් කරන විට පාට වෙනස් වීම */
-        .x-link:active { background: #000; }
-        .tg-link:active { background: #229ED9; }
-        .yt-link:active { background: #FF0000; }
-        .tk-link:active { background: #010101; }
-        .ig-link:active { background: #E1306C; }
-        .gh-link:active { background: #24292e; }
+.link {
+  display: block;
+  margin: 12px 0;
+  padding: 14px;
+  background: linear-gradient(45deg, #00f0ff, #8a2be2);
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-        .footer { margin-top: 50px; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; }
-    </style>
+.link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f0ff;
+}
+
+footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: #777;
+}
+</style>
+
 </head>
+
 <body>
 
-    <div class="profile-container">
-        <div class="profile-img"></div>
-        <h1>Testnet Pilot X</h1>
-        <p class="subtitle">🚀 Official Flight Paths</p>
-    </div>
+<div class="container">
 
-    <div class="links-container">
-        <a href="https://x.com/TestnetPilot_X" class="link-card x-link" target="_blank">
-            <i class="fab fa-x-twitter"></i> X (Twitter)
-        </a>
-        <a href="https://t.me/TestnetPilot_X" class="link-card tg-link" target="_blank">
-            <i class="fab fa-telegram"></i> Telegram
-        </a>
-        <a href="https://youtube.com/@testnetpilot_x" class="link-card yt-link" target="_blank">
-            <i class="fab fa-youtube"></i> YouTube
-        </a>
-        <a href="https://www.tiktok.com/@testnetpilot_x" class="link-card tk-link" target="_blank">
-            <i class="fab fa-tiktok"></i> TikTok
-        </a>
-        <a href="https://www.instagram.com/testnetpilot_x/" class="link-card ig-link" target="_blank">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="https://github.com/TestnetPilot" class="link-card gh-link" target="_blank">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-    </div>
+  <img src="https://via.placeholder.com/120" class="profile" alt="profile">
 
-    <div class="footer">
-        © 2026 TESTNET PILOT X | ALWAYS LIVE
-    </div>
+  <h1>🚀 TestnetPilot</h1>
+  <p class="tagline">Navigate the Future of Crypto Airdrops</p>
+
+  <div class="card">
+    <h2>🌟 What's in our Flight Plan?</h2>
+    <ul>
+      <li>🛠️ Early Testnet Guides: Master the tech before the crowd</li>
+      <li>🪂 Verified Airdrops: Your gateway to early rewards</li>
+      <li>🔍 Deep Insights: Tokenomics and project utility explained</li>
+      <li>📰 Live Updates: Real-time crypto news</li>
+    </ul>
+  </div>
+
+  <h2>🌐 Official Flight Paths</h2>
+
+  <a href="https://x.com/TestnetPilot_X" class="link">🐦 X (Twitter)</a>
+  <a href="https://t.me/TestnetPilot_X" class="link">📢 Telegram</a>
+  <a href="https://youtube.com/@testnetpilot_x" class="link">🎥 YouTube</a>
+  <a href="https://www.tiktok.com/@testnetpilot_x" class="link">🎵 TikTok</a>
+  <a href="https://www.instagram.com/testnetpilot_x/" class="link">📸 Instagram</a>
+  <a href="https://github.com/TestnetPilot" class="link">💻 GitHub</a>
+  <a href="https://open.spotify.com/user/31szkim6wmevrnd3rhw55toa6b5i?si=7e7e225f2f134af9" class="link">🎧 Spotify</a>
+
+  <footer>
+    <p>© 2026 TestnetPilot</p>
+  </footer>
+
+</div>
 
 </body>
 </html>
