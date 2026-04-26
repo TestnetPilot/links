@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
             background: linear-gradient(-45deg, #05070a, #111827, #082f49, #00d2ff);
@@ -28,7 +28,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Entrance Animation for the Card */
         .card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(25px);
@@ -40,18 +39,13 @@
             max-width: 450px;
             text-align: center;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            
-            /* Initial state for Load Animation */
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s ease-out forwards;
         }
 
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .logo-box {
@@ -71,9 +65,8 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 10px 35px rgba(0, 210, 255, 0.5); }
-            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         h1 { font-size: 30px; margin-bottom: 8px; letter-spacing: -0.5px; }
@@ -105,23 +98,23 @@
             font-weight: 600;
             font-size: 15px;
             transition: 0.3s all ease;
-            border: 1px solid transparent;
+            border: 2px solid transparent; /* Default Border */
         }
 
         .link-card i { width: 28px; font-size: 20px; margin-right: 12px; }
 
-        /* Link Hovers */
-        .link-card:hover {
+        /* Hover & Touch (Active) States with Official Colors */
+        .link-card:active, .link-card:hover {
+            transform: scale(1.02);
             background: rgba(255, 255, 255, 0.12);
-            transform: translateX(5px);
-            border-color: rgba(0, 210, 255, 0.4);
         }
 
-        .link-card.telegram:hover i { color: #26A5E4; }
-        .link-card.x-twitter:hover i { color: #ffffff; }
-        .link-card.youtube:hover i { color: #FF0000; }
-        .link-card.tiktok:hover i { color: #00f2ea; }
-        .link-card.instagram:hover i { color: #E1306C; }
+        /* Platform Specific Highlighting */
+        .telegram:active, .telegram:hover { border-color: #26A5E4; box-shadow: 0 0 15px rgba(38, 165, 228, 0.3); }
+        .x-twitter:active, .x-twitter:hover { border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+        .youtube:active, .youtube:hover { border-color: #FF0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); }
+        .tiktok:active, .tiktok:hover { border-color: #EE1D52; box-shadow: 0 0 15px rgba(238, 29, 82, 0.3); }
+        .instagram:active, .instagram:hover { border-color: #E1306C; box-shadow: 0 0 15px rgba(225, 48, 108, 0.3); }
 
         .footer { margin-top: 35px; font-size: 12px; opacity: 0.4; letter-spacing: 1px; }
     </style>
