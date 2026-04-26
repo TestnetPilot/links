@@ -8,9 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+            margin: 0; padding: 0; box-sizing: border-box; 
             font-family: 'Inter', sans-serif; 
             -webkit-tap-highlight-color: transparent; 
         }
@@ -36,7 +34,6 @@
         .card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px 25px;
             border-radius: 35px;
@@ -52,16 +49,17 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Logo එක විශාල කරන ලදී */
         .logo-box {
-            width: 85px;
-            height: 85px;
+            width: 110px; /* කලින් 85px තිබුණේ */
+            height: 110px;
             background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-            border-radius: 22px;
-            margin: 0 auto 20px;
+            border-radius: 28px;
+            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 42px;
+            font-size: 55px; /* අකුරත් විශාල කළා */
             font-weight: 800;
             color: white;
             animation: pulse 2s infinite;
@@ -72,8 +70,8 @@
             50% { transform: scale(1.05); }
         }
 
-        h1 { font-size: 30px; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .welcome-msg { color: #00d2ff; font-weight: 500; margin-bottom: 25px; font-size: 18px; }
+        h1 { font-size: 32px; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .welcome-msg { color: #00d2ff; font-weight: 500; margin-bottom: 25px; font-size: 19px; }
 
         .info-box {
             text-align: left;
@@ -81,7 +79,6 @@
             padding: 20px;
             border-radius: 20px;
             margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .info-item { display: flex; align-items: start; margin-bottom: 12px; font-size: 14.5px; }
@@ -98,42 +95,36 @@
             text-decoration: none;
             color: white;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 16px;
             transition: all 0.25s ease;
-            border: 2px solid transparent;
+            border: none; /* බෝඩර් එක සම්පූර්ණයෙන්ම අයින් කළා */
         }
 
         .link-card i { 
             width: 28px; 
             font-size: 22px; 
             margin-right: 12px; 
-            transition: color 0.25s ease; /* Icon එකේ පාට වෙනස් වීමට */
+            transition: color 0.25s ease;
         }
 
-        /* --- Touch/Click (Active) States --- */
+        /* --- Touch (Active) States - Icons Highlight Only --- */
 
-        /* Telegram: Blue */
-        .telegram:active { border-color: #26A5E4 !important; }
+        .telegram:active { background: rgba(38, 165, 228, 0.15) !important; }
         .telegram:active i { color: #26A5E4 !important; }
 
-        /* X: White */
-        .x-twitter:active { border-color: #ffffff !important; }
+        .x-twitter:active { background: rgba(255, 255, 255, 0.15) !important; }
         .x-twitter:active i { color: #ffffff !important; }
 
-        /* YouTube: Red */
-        .youtube:active { border-color: #FF0000 !important; }
+        .youtube:active { background: rgba(255, 0, 0, 0.15) !important; }
         .youtube:active i { color: #FF0000 !important; }
 
-        /* TikTok: Neon Pink */
-        .tiktok:active { border-color: #EE1D52 !important; }
+        .tiktok:active { background: rgba(238, 29, 82, 0.15) !important; }
         .tiktok:active i { color: #EE1D52 !important; }
 
-        /* Instagram: Instagram Pink */
-        .instagram:active { border-color: #E1306C !important; }
+        .instagram:active { background: rgba(225, 48, 108, 0.15) !important; }
         .instagram:active i { color: #E1306C !important; }
 
-        /* සාමාන්‍යයෙන් Touch කරනකොට Button එක පොඩ්ඩක් ඇතුළට යන effect එකක් */
-        .link-card:active { transform: scale(0.97); background: rgba(255, 255, 255, 0.12); }
+        .link-card:active { transform: scale(0.97); }
 
         .footer { margin-top: 35px; font-size: 12px; opacity: 0.4; letter-spacing: 1px; }
     </style>
