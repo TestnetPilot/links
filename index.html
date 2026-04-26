@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TestnetPilot | Web3 Gateway</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
@@ -38,7 +38,7 @@
             text-align: center;
             width: 100%;
             max-width: 450px;
-            padding: 20px;
+            padding: 25px;
             z-index: 10;
         }
 
@@ -71,7 +71,7 @@
             50% { transform: scale(1.05); }
         }
 
-        .entry-title { font-size: 36px; margin-bottom: 10px; letter-spacing: -1px; }
+        .entry-title { font-size: 36px; margin-bottom: 10px; letter-spacing: -1px; font-weight: 800; }
         .entry-tagline { 
             font-size: 16px; 
             color: #00d2ff; 
@@ -82,7 +82,7 @@
         }
 
         .start-btn {
-            padding: 16px 40px;
+            padding: 16px 45px;
             font-size: 16px;
             font-weight: 700;
             color: white;
@@ -102,7 +102,7 @@
             border-color: transparent;
         }
 
-        /* --- Main Content Section --- */
+        /* --- Main Content Section (Matched to Screenshot) --- */
         #main-content {
             display: none;
             opacity: 0;
@@ -110,26 +110,34 @@
             transition: all 0.8s ease;
         }
 
-        .info-box {
+        .welcome-title { font-size: 38px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .welcome-subtitle { color: #00d2ff; font-size: 15px; font-weight: 600; margin-bottom: 35px; }
+
+        .info-list {
             text-align: left;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 20px;
-            margin: 25px 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 40px;
+            padding-left: 10px;
         }
 
-        .info-item { display: flex; align-items: start; margin-bottom: 12px; font-size: 14.5px; }
-        .info-item i { color: #00d2ff; margin-right: 12px; margin-top: 3px; }
+        .info-item { 
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            font-size: 15px; 
+            color: #e2e8f0;
+            font-weight: 500;
+        }
 
-        .links-container { display: flex; flex-direction: column; gap: 12px; }
+        .info-item i { color: #00d2ff; margin-right: 15px; font-size: 18px; width: 20px; text-align: center; }
+
+        .links-container { display: flex; flex-direction: column; gap: 14px; }
 
         .link-card {
             display: flex;
             align-items: center;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 18px;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
             text-decoration: none;
             color: white;
             font-weight: 600;
@@ -138,24 +146,17 @@
             border: none;
         }
 
-        .link-card i { width: 28px; font-size: 22px; margin-right: 12px; transition: color 0.25s; }
+        .link-card i { width: 30px; font-size: 22px; margin-right: 15px; transition: color 0.25s; }
 
-        /* Touch (Active) States - Icons Highlight Only */
-        .telegram:active { background: rgba(38, 165, 228, 0.15) !important; }
-        .telegram:active i { color: #26A5E4 !important; }
+        /* Icon Highlight Colors on Touch */
+        .telegram:active i { color: #26A5E4; }
+        .x-twitter:active i { color: #ffffff; }
+        .youtube:active i { color: #FF0000; }
+        .instagram:active i { color: #E1306C; }
 
-        .x-twitter:active { background: rgba(255, 255, 255, 0.15) !important; }
-        .x-twitter:active i { color: #ffffff !important; }
+        .link-card:active { transform: scale(0.97); background: rgba(255, 255, 255, 0.1); }
 
-        .youtube:active { background: rgba(255, 0, 0, 0.15) !important; }
-        .youtube:active i { color: #FF0000 !important; }
-
-        .instagram:active { background: rgba(225, 48, 108, 0.15) !important; }
-        .instagram:active i { color: #E1306C !important; }
-
-        .link-card:active { transform: scale(0.97); }
-
-        /* Animation States */
+        /* Logic States */
         .fade-out { opacity: 0; transform: scale(0.9); pointer-events: none; }
         .fade-in { opacity: 1 !important; transform: translateY(0) !important; }
         .bg-active { opacity: 1 !important; animation: gradientBG 12s ease infinite; }
@@ -166,7 +167,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        .footer { margin-top: 30px; font-size: 11px; opacity: 0.3; letter-spacing: 1px; }
+        .footer { margin-top: 45px; font-size: 11px; opacity: 0.4; letter-spacing: 1px; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -182,13 +183,13 @@
         </div>
 
         <div id="main-content">
-            <h1 style="font-size: 28px; margin-bottom: 5px;">Dashboard</h1>
-            <p style="color: #00d2ff; font-size: 14px; margin-bottom: 20px;">Your Gateway to Web3 Rewards</p>
+            <h1 class="welcome-title">Welcome, Pilot</h1>
+            <p class="welcome-subtitle">Your Gateway to the Future</p>
             
-            <div class="info-box">
-                <div class="info-item"><i class="fa-solid fa-rocket"></i><span>Early Access Testnet Guides</span></div>
-                <div class="info-item"><i class="fa-solid fa-circle-check"></i><span>Verified Crypto Airdrops</span></div>
-                <div class="info-item"><i class="fa-solid fa-bolt"></i><span>Direct Web3 Project Insights</span></div>
+            <div class="info-list">
+                <div class="info-item"><i class="fa-solid fa-rocket"></i> Early Access Testnet Guides</div>
+                <div class="info-item"><i class="fa-solid fa-circle-check"></i> Verified Airdrops</div>
+                <div class="info-item"><i class="fa-solid fa-bolt"></i> Direct Web3 Project Insights</div>
             </div>
 
             <div class="links-container">
@@ -205,6 +206,7 @@
                     <i class="fa-brands fa-instagram"></i> Instagram Official
                 </a>
             </div>
+            
             <p class="footer">© 2026 TESTNETPILOT. CORE EDITION.</p>
         </div>
     </div>
@@ -215,17 +217,18 @@
             const main = document.getElementById('main-content');
             const bg = document.getElementById('bg');
 
-            // Hide Entry View
+            // Fade out the Entry screen
             entry.classList.add('fade-out');
             
-            // Activate Background Animation
+            // Start the animated background
             bg.classList.add('bg-active');
 
-            // Show Dashboard after transition
+            // Switch views after a short delay
             setTimeout(() => {
                 entry.style.display = 'none';
                 main.style.display = 'block';
                 
+                // Trigger fade-in for the main dashboard
                 setTimeout(() => {
                     main.classList.add('fade-in');
                 }, 50);
