@@ -49,7 +49,6 @@
             align-items: center;
             justify-content: center;
             color: white;
-            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.3);
             margin: 0 auto;
         }
 
@@ -69,7 +68,8 @@
             font-size: 58px;
             font-weight: 800;
             margin-bottom: 25px;
-            animation: pulseEntry 2s infinite; /* Original animation for Page 1 */
+            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.3);
+            animation: pulseEntry 2s infinite;
         }
 
         @keyframes pulseEntry {
@@ -115,21 +115,24 @@
             transition: all 0.8s ease;
         }
 
-        /* New Logo on Page 2 */
+        /* Dashboard Logo with Slow Gradient Shift (Premium) */
         .logo-dashboard {
-            width: 85px;  /* Slightly smaller for dashboard */
-            height: 85px;
-            border-radius: 24px;
-            font-size: 42px;
+            width: 90px;
+            height: 90px;
+            border-radius: 26px;
+            font-size: 44px;
             font-weight: 800;
             margin-bottom: 30px;
-            /* New Professional Animation: Subtle Rotate */
-            animation: rotateDash 15s linear infinite; 
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5, #00d2ff);
+            background-size: 300% 300%;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.25);
+            animation: logoGradientDash 6s ease infinite; /* Subtle premium animation */
         }
 
-        @keyframes rotateDash {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes logoGradientDash {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .welcome-title { 
