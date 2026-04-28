@@ -8,23 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            background: radial-gradient(circle at top center, #0a192f 0%, #050a10 100%);
+            background-color: #050a10;
             color: white;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevent scrolling during splash */
             min-height: 100vh;
+            position: relative;
         }
 
-        /* Subtle background grid */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-        }
-
+        /* Shared styling elements */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
@@ -36,6 +28,7 @@
             transform: scale(0.96);
         }
 
+        /* Desktop hover effects */
         @media (min-width: 1024px) {
             .btn-active:hover {
                 transform: translateY(-2px);
@@ -43,8 +36,9 @@
             }
         }
 
+        /* Logo Glow Animation */
         .logo-container {
-            box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.4);
             animation: pulse-glow 4s infinite ease-in-out;
         }
 
@@ -53,25 +47,72 @@
             50% { transform: scale(1.02); filter: brightness(1.2); }
         }
 
-        #splash-screen, #main-content {
-            transition: opacity 0.5s ease-in-out;
+        /* Screen transition styling */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+            z-index: 100;
         }
 
-        /* Desktop responsiveness adjustments */
+        #main-content {
+            opacity: 0;
+            display: none;
+            transition: opacity 0.8s ease-in-out;
+            z-index: 10;
+            overflow-y: auto; /* Re-enable scrolling */
+        }
+
+        /* Content width constraint for large screens */
         .content-wrapper {
             width: 100%;
-            max-width: 480px; /* Limits width on large screens */
+            max-width: 480px; 
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
+
+        /* ----- Background Animation CSS ----- */
+        #tsparticles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            z-index: 1; /* Behind content, in front of body bg */
+            background: radial-gradient(circle at top center, #0a192f 0%, #050a10 100%);
+        }
+
+        /* Styling for the GET STARTED button to contrast the animation */
+        .get-started-btn {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(34, 211, 238, 0.3));
+            border: 2px solid rgba(59, 130, 246, 0.6);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.7);
+            border-color: rgba(34, 211, 238, 0.8);
+        }
+
     </style>
 </head>
 <body class="antialiased">
 
-    <div id="splash-screen" class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
-        <div class="content-wrapper space-y-10">
+    <div id="splash-screen" class="flex flex-col items-center justify-center text-center p-6">
+        
+        <div id="tsparticles"></div>
+        
+        <div class="content-wrapper space-y-12">
             <div class="flex justify-center">
-                <div class="w-36 h-36 md:w-44 md:h-44 bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2.5rem] flex items-center justify-center logo-container">
-                    <span class="text-7xl md:text-8xl font-bold text-white">T</span>
+                <div class="w-40 h-40 md:w-48 md:h-48 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-[2.8rem] flex items-center justify-center logo-container">
+                    <span class="text-8xl md:text-9xl font-bold text-white">T</span>
                 </div>
             </div>
 
@@ -82,22 +123,22 @@
                 </p>
             </div>
 
-            <button id="get-started-trigger" class="w-full py-4 md:py-5 rounded-full border-2 border-blue-500/50 bg-blue-500/10 text-white font-bold uppercase tracking-widest btn-active shadow-lg shadow-blue-500/20">
+            <button id="get-started-trigger" class="get-started-btn w-full py-5 rounded-full btn-active text-lg">
                 Get Started
             </button>
         </div>
 
-        <footer class="absolute bottom-8 w-full text-gray-600 text-[10px] tracking-[0.4em] uppercase">
+        <footer class="absolute bottom-8 w-full text-gray-600 text-[10px] tracking-[0.4em] uppercase z-10">
             © 2026 TESTNETPILOT. CORE EDITION.
         </footer>
     </div>
 
-    <div id="main-content" class="hidden opacity-0 flex flex-col items-center justify-center min-h-screen p-6 text-center">
-        <div class="content-wrapper py-10 space-y-8">
+    <div id="main-content" class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
+        <div class="content-wrapper py-16 space-y-10">
             
             <div class="flex justify-center">
-                <div class="w-28 h-28 md:w-32 md:h-32 bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2rem] flex items-center justify-center logo-container">
-                    <span class="text-6xl md:text-7xl font-bold text-white">T</span>
+                <div class="w-32 h-32 md:w-36 md:h-36 bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2rem] flex items-center justify-center logo-container">
+                    <span class="text-7xl md:text-8xl font-bold text-white">T</span>
                 </div>
             </div>
 
@@ -106,68 +147,159 @@
                 <p class="text-cyan-400 text-base md:text-lg font-medium">Your Gateway to the Future</p>
             </div>
 
-            <div class="glass-card p-6 md:p-8 rounded-[2rem] text-left space-y-6">
+            <div class="glass-card p-7 md:p-9 rounded-[2rem] text-left space-y-7">
                 <div class="flex items-center gap-4">
-                    <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400"><i class="fas fa-rocket"></i></div>
+                    <div class="p-2.5 bg-blue-500/10 rounded-xl text-cyan-400"><i class="fas fa-rocket text-lg"></i></div>
                     <span class="text-sm md:text-base font-medium text-gray-300">Early Access Testnet Guides</span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400"><i class="fas fa-check-circle"></i></div>
+                    <div class="p-2.5 bg-blue-500/10 rounded-xl text-cyan-400"><i class="fas fa-check-circle text-lg"></i></div>
                     <span class="text-sm md:text-base font-medium text-gray-300">Verified Crypto Airdrops</span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400"><i class="fas fa-bolt"></i></div>
+                    <div class="p-2.5 bg-blue-500/10 rounded-xl text-cyan-400"><i class="fas fa-bolt text-lg"></i></div>
                     <span class="text-sm md:text-base font-medium text-gray-300">Direct Web3 Project Insights</span>
                 </div>
             </div>
 
             <div class="space-y-4">
                 <a href="https://t.me/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-                    <i class="fab fa-telegram text-2xl w-12 text-blue-400"></i>
+                    <i class="fab fa-telegram text-3xl w-14 text-blue-400"></i>
                     <span class="flex-1 font-semibold text-left">Telegram Community</span>
                     <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
                 </a>
                 <a href="https://x.com/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-                    <i class="fa-brands fa-x-twitter text-2xl w-12 text-white"></i>
+                    <i class="fa-brands fa-x-twitter text-3xl w-14 text-white"></i>
                     <span class="flex-1 font-semibold text-left">Follow on X</span>
                     <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
                 </a>
                 <a href="https://youtube.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-                    <i class="fab fa-youtube text-2xl w-12 text-red-500"></i>
+                    <i class="fab fa-youtube text-3xl w-14 text-red-500"></i>
                     <span class="flex-1 font-semibold text-left">Watch on YouTube</span>
                     <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
                 </a>
                 <a href="https://www.tiktok.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-                    <i class="fab fa-tiktok text-2xl w-12 text-pink-400"></i>
+                    <i class="fab fa-tiktok text-3xl w-14 text-pink-400"></i>
                     <span class="flex-1 font-semibold text-left">TikTok Official</span>
                     <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
                 </a>
                 <a href="https://www.instagram.com/testnetpilot_x/" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-                    <i class="fab fa-instagram text-2xl w-12 text-orange-400"></i>
+                    <i class="fab fa-instagram text-3xl w-14 text-orange-400"></i>
                     <span class="flex-1 font-semibold text-left">Instagram Official</span>
                     <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
                 </a>
             </div>
 
-            <footer class="pt-10 text-gray-600 text-[10px] tracking-[0.4em] uppercase">
+            <footer class="pt-12 text-gray-600 text-[10px] tracking-[0.4em] uppercase">
                 © 2026 TESTNETPILOT. CORE EDITION.
             </footer>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    
     <script>
+        // ----- Screen Transition logic -----
         const splash = document.getElementById('splash-screen');
         const main = document.getElementById('main-content');
         const btn = document.getElementById('get-started-trigger');
 
         btn.addEventListener('click', () => {
             splash.style.opacity = '0';
+            splash.style.visibility = 'hidden';
             setTimeout(() => {
                 splash.style.display = 'none';
-                main.classList.remove('hidden');
-                main.classList.add('flex');
+                main.style.display = 'flex';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
                 setTimeout(() => main.style.opacity = '1', 50);
-            }, 500);
+            }, 800);
+        });
+
+        // ----- tsParticles Configuration for Crypto-themed Background -----
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        area: 800
+                    }
+                },
+                color: {
+                    value: "#3b82f6" // blue-500
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#22d3ee", // cyan-400
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
         });
     </script>
 </body>
