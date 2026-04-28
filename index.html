@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TestnetPilot - Early Web3 Access</title>
+    <title>TestnetPilot - Your Web3 Journey Starts Here</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
+            /* Background gradient that covers the whole screen */
             background: radial-gradient(circle at top center, #0a192f 0%, #050a10 100%);
             color: white;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
+        /* Subtle grid pattern for the body background */
         body::before {
             content: "";
             position: absolute;
@@ -28,6 +26,7 @@
             z-index: -1;
         }
 
+        /* Shared Card Style */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
@@ -35,11 +34,13 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
+        /* Interactive element effect (on click/touch) */
         .btn-active:active {
             transform: scale(0.96);
             background: rgba(59, 130, 246, 0.15);
         }
 
+        /* Logo Glow Animation */
         .logo-container {
             box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
             animation: pulse-glow 4s infinite ease-in-out;
@@ -49,75 +50,154 @@
             0%, 100% { transform: scale(1); filter: brightness(1); }
             50% { transform: scale(1.02); filter: brightness(1.2); }
         }
+
+        /* Styles for Part 1: Splash Screen */
+        #splash-screen {
+            display: flex; /* Initially visible */
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Styling for the GET STARTED button to match image_5.png */
+        .get-started-btn {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2));
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .get-started-btn:hover {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        /* Styles for Part 2: Main Content (Initially hidden) */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
-<body class="p-6 text-center">
+<body class="p-6">
 
-    <div class="mt-8 mb-10">
-        <div class="w-40 h-40 bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2.8rem] flex items-center justify-center logo-container">
-            <span class="text-8xl font-bold text-white">T</span>
+    <div id="splash-screen" class="flex flex-col items-center justify-center min-h-screen text-center p-6 space-y-8">
+        
+        <div class="logo-container bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2.8rem] flex items-center justify-center">
+            <div class="w-44 h-44 flex items-center justify-center">
+                <span class="text-9xl font-bold text-white">T</span>
+            </div>
         </div>
+
+        <div class="space-y-4">
+            <h1 class="text-5xl font-bold tracking-tight">TestnetPilot</h1>
+            <p class="text-cyan-400 text-lg font-medium opacity-90 max-w-sm">Step into the World of Early Web3 Testnets & Verified Airdrops.</p>
+        </div>
+
+        <button id="get-started-trigger" class="get-started-btn w-full max-w-sm p-5 rounded-full btn-active mt-12 text-lg">
+            Get Started
+        </button>
+
+        <footer class="absolute bottom-8 text-gray-600 text-[10px] tracking-[0.4em] uppercase">
+            © 2026 TESTNETPILOT. CORE EDITION.
+        </footer>
     </div>
 
-    <h1 class="text-4xl font-bold mb-2 tracking-tight">Welcome, Pilot</h1>
-    <p class="text-cyan-400 text-lg font-medium mb-10 opacity-90">Your Gateway to the Future</p>
+    <div id="main-content" class="flex flex-col items-center justify-center p-6 text-center space-y-10 min-h-screen">
+        
+        <div class="logo-container bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2.8rem] flex items-center justify-center">
+            <div class="w-40 h-40 flex items-center justify-center">
+                <span class="text-8xl font-bold text-white">T</span>
+            </div>
+        </div>
 
-    <div class="glass-card w-full max-w-sm p-7 rounded-[2rem] text-left mb-10 space-y-5">
-        <div class="flex items-center gap-4">
-            <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
-                <i class="fas fa-rocket"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-300">Early Access Testnet Guides</span>
+        <div class="space-y-2">
+            <h2 class="text-4xl font-bold tracking-tight">Welcome, Pilot</h2>
+            <p class="text-cyan-400 text-lg font-medium opacity-90">Your Gateway to the Future</p>
         </div>
-        <div class="flex items-center gap-4">
-            <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
-                <i class="fas fa-check-circle"></i>
+
+        <div class="glass-card w-full max-w-sm p-7 rounded-[2rem] text-left space-y-5">
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <span class="text-sm font-medium text-gray-300">Early Access Testnet Guides</span>
             </div>
-            <span class="text-sm font-medium text-gray-300">Verified Crypto Airdrops</span>
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
-                <i class="fas fa-bolt"></i>
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <span class="text-sm font-medium text-gray-300">Verified Crypto Airdrops</span>
             </div>
-            <span class="text-sm font-medium text-gray-300">Direct Web3 Project Insights</span>
+            <div class="flex items-center gap-4">
+                <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="text-sm font-medium text-gray-300">Direct Web3 Project Insights</span>
+            </div>
         </div>
+
+        <div class="w-full max-w-sm space-y-4">
+            <a href="https://t.me/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
+                <i class="fab fa-telegram text-2xl w-12 text-blue-400"></i>
+                <span class="flex-1 font-semibold text-left">Telegram Community</span>
+                <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
+            </a>
+
+            <a href="https://x.com/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
+                <i class="fa-brands fa-x-twitter text-2xl w-12 text-white"></i>
+                <span class="flex-1 font-semibold text-left">Follow on X</span>
+                <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
+            </a>
+
+            <a href="https://youtube.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
+                <i class="fab fa-youtube text-2xl w-12 text-red-500"></i>
+                <span class="flex-1 font-semibold text-left">Watch on YouTube</span>
+                <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
+                <i class="fab fa-tiktok text-2xl w-12 text-pink-400"></i>
+                <span class="flex-1 font-semibold text-left">TikTok Official</span>
+                <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
+            </a>
+
+            <a href="https://www.instagram.com/testnetpilot_x/" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
+                <i class="fab fa-instagram text-2xl w-12 text-orange-400"></i>
+                <span class="flex-1 font-semibold text-left">Instagram Official</span>
+                <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
+            </a>
+        </div>
+
+        <footer class="mt-16 text-gray-600 text-[10px] tracking-[0.4em] uppercase pb-8">
+            © 2026 TESTNETPILOT. CORE EDITION.
+        </footer>
     </div>
 
-    <div class="w-full max-w-sm space-y-4 mb-16">
-        <a href="https://t.me/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-            <i class="fab fa-telegram text-2xl w-12 text-blue-400"></i>
-            <span class="flex-1 font-semibold text-left">Telegram Community</span>
-            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
-        </a>
+    <script>
+        const splashScreen = document.getElementById('splash-screen');
+        const mainContent = document.getElementById('main-content');
+        const getStartedTrigger = document.getElementById('get-started-trigger');
 
-        <a href="https://x.com/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-            <i class="fa-brands fa-x-twitter text-2xl w-12 text-white"></i>
-            <span class="flex-1 font-semibold text-left">Follow on X</span>
-            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
-        </a>
-
-        <a href="https://youtube.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-            <i class="fab fa-youtube text-2xl w-12 text-red-500"></i>
-            <span class="flex-1 font-semibold text-left">Watch on YouTube</span>
-            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
-        </a>
-
-        <a href="https://www.tiktok.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-            <i class="fab fa-tiktok text-2xl w-12 text-pink-400"></i>
-            <span class="flex-1 font-semibold text-left">TikTok Official</span>
-            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
-        </a>
-
-        <a href="https://www.instagram.com/testnetpilot_x/" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-            <i class="fab fa-instagram text-2xl w-12 text-orange-400"></i>
-            <span class="flex-1 font-semibold text-left">Instagram Official</span>
-            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
-        </a>
-    </div>
-
-    <footer class="text-gray-600 text-[10px] tracking-[0.4em] uppercase pb-8">
-        © 2026 TESTNETPILOT. CORE EDITION.
-    </footer>
+        getStartedTrigger.addEventListener('click', () => {
+            // Fade out the splash screen
+            splashScreen.style.opacity = '0';
+            
+            // After fade out (500ms), switch displays
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+                mainContent.style.display = 'flex';
+                // Trigger reflow to apply display: flex before setting opacity
+                void mainContent.offsetWidth; 
+                // Fade in the main content
+                mainContent.style.opacity = '1';
+            }, 500);
+        });
+    </script>
 
 </body>
 </html>
