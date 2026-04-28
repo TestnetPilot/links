@@ -8,122 +8,131 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         body {
-            background-color: #050a10;
+            /* Background එකට Gradient එකක් එක් කර ඇත */
+            background: radial-gradient(circle at top center, #0a192f 0%, #050a10 100%);
             color: white;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
+
+        /* පසුබිමේ ඇති අලංකාර තිත් (Glow points) */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .btn-active:active {
-            transform: scale(0.95);
-            background: rgba(59, 130, 246, 0.2);
+            transform: scale(0.96);
+            background: rgba(59, 130, 246, 0.15);
         }
 
         .logo-container {
-            box-shadow: 0 0 60px rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
             animation: pulse-glow 4s infinite ease-in-out;
         }
 
         @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(59, 130, 246, 0.5); }
-            50% { transform: scale(1.03); box-shadow: 0 0 80px rgba(59, 130, 246, 0.7); }
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.9; }
         }
 
-        /* Live Red Dot Animation */
         .live-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background-color: #ff4d4d;
             border-radius: 50%;
-            box-shadow: 0 0 10px #ff4d4d;
-            animation: blink 1.5s infinite;
+            box-shadow: 0 0 12px #ff4d4d;
+            animation: blink 2s infinite;
         }
 
         @keyframes blink {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.2); }
-            100% { opacity: 1; transform: scale(1); }
+            0%, 100% { opacity: 1; filter: brightness(1); }
+            50% { opacity: 0.5; filter: brightness(1.5); }
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-6 text-center">
+<body class="flex flex-col items-center justify-center p-6 text-center">
 
-    <div class="absolute top-6 left-6">
+    <div class="absolute top-8 left-8">
         <div class="live-dot"></div>
     </div>
 
     <div class="mt-12 mb-10">
-        <div class="w-40 h-40 bg-gradient-to-br from-blue-400 to-blue-600 rounded-[2.5rem] flex items-center justify-center logo-container">
+        <div class="w-40 h-40 bg-gradient-to-br from-blue-500 to-blue-700 rounded-[2.8rem] flex items-center justify-center logo-container">
             <span class="text-8xl font-bold">T</span>
         </div>
     </div>
 
     <h1 class="text-4xl font-bold mb-2 tracking-tight">Welcome, Pilot</h1>
-    <p class="text-cyan-400 text-lg font-medium mb-10">Your Gateway to the Future</p>
+    <p class="text-cyan-400 text-lg font-medium mb-10 opacity-90">Your Gateway to the Future</p>
 
     <div class="glass-card w-full max-w-sm p-7 rounded-[2rem] text-left mb-10 space-y-5">
         <div class="flex items-center gap-4">
-            <div class="p-2 bg-blue-500/10 rounded-xl">
-                <i class="fas fa-rocket text-cyan-400"></i>
+            <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
+                <i class="fas fa-rocket"></i>
             </div>
-            <span class="text-md text-gray-200">Early Access Testnet Guides</span>
+            <span class="text-sm font-medium text-gray-300">Early Access Testnet Guides</span>
         </div>
         <div class="flex items-center gap-4">
-            <div class="p-2 bg-blue-500/10 rounded-xl">
-                <i class="fas fa-check-circle text-cyan-400"></i>
+            <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
+                <i class="fas fa-check-circle"></i>
             </div>
-            <span class="text-md text-gray-200">Verified Crypto Airdrops</span>
+            <span class="text-sm font-medium text-gray-300">Verified Crypto Airdrops</span>
         </div>
         <div class="flex items-center gap-4">
-            <div class="p-2 bg-blue-500/10 rounded-xl">
-                <i class="fas fa-bolt text-cyan-400"></i>
+            <div class="p-2 bg-blue-500/10 rounded-xl text-cyan-400">
+                <i class="fas fa-bolt"></i>
             </div>
-            <span class="text-md text-gray-200">Direct Web3 Project Insights</span>
+            <span class="text-sm font-medium text-gray-300">Direct Web3 Project Insights</span>
         </div>
     </div>
 
-    <div class="w-full max-w-sm space-y-4 mb-12">
-        
+    <div class="w-full max-w-sm space-y-4 mb-16">
         <a href="https://t.me/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
             <i class="fab fa-telegram text-2xl w-12 text-blue-400"></i>
             <span class="flex-1 font-semibold text-left">Telegram Community</span>
-            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
         </a>
 
         <a href="https://x.com/TestnetPilot_X" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
             <i class="fa-brands fa-x-twitter text-2xl w-12 text-white"></i>
             <span class="flex-1 font-semibold text-left">Follow on X</span>
-            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
         </a>
 
         <a href="https://youtube.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
             <i class="fab fa-youtube text-2xl w-12 text-red-500"></i>
             <span class="flex-1 font-semibold text-left">Watch on YouTube</span>
-            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
         </a>
 
         <a href="https://www.tiktok.com/@testnetpilot_x" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
-            <i class="fab fa-tiktok text-2xl w-12 text-pink-500"></i>
+            <i class="fab fa-tiktok text-2xl w-12 text-pink-400"></i>
             <span class="flex-1 font-semibold text-left">TikTok Official</span>
-            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
         </a>
 
         <a href="https://www.instagram.com/testnetpilot_x/" target="_blank" class="glass-card btn-active flex items-center p-4 rounded-2xl">
             <i class="fab fa-instagram text-2xl w-12 text-orange-400"></i>
             <span class="flex-1 font-semibold text-left">Instagram Official</span>
-            <i class="fas fa-chevron-right text-xs text-gray-500"></i>
+            <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>
         </a>
-
     </div>
 
-    <footer class="text-gray-600 text-[10px] tracking-[0.3em] uppercase pb-10">
+    <footer class="text-gray-600 text-[10px] tracking-[0.4em] uppercase pb-8">
         © 2026 TESTNETPILOT. CORE EDITION.
     </footer>
 
